@@ -18,12 +18,18 @@ var count = 0;
             ? process.env.PUPPETEER_EXECUTABLE_PATH
             : puppeteer.executablePath(),}
     );
-    const page = await browser.newPage();
-    console.log("This is wild", ++count);
-    await page.goto(url);
+    const pages = [];
+    for (let i = 0; i < numTabs; i++) {
+      const page = await browser.newPage();
+      await page.goto(url);
+      pages.push(page);
+    }
 
-    // Wait for 10 seconds
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(5000); // Wait for 2 seconds
+
+    for (const page of pages) {
+      await page.close();
+    }
 
     await browser.close();
   }
@@ -31,5 +37,6 @@ var count = 0;
 
 // Usage
 const url = 'https://github.com/sprakhar11';
-openAndClosePage(url)
-  .catch((error) => console.error('Error occurred:', error));
+const numTabs = 10;
+openAndCloseTabs(url, numTabs)
+  .catch((error) => console.error('Error occurred:', error)); 
