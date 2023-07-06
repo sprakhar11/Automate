@@ -2,6 +2,19 @@ const puppeteer = require('puppeteer');
 require("dotenv").config();
 
 
+// const browser = await puppeteer.launch({
+//   agrs: [
+//       "--disable-setuid-sandbox",
+//       "--no-sandbox",
+//       "--single-process",
+//       "--no-zygote",
+//   ],
+//   executablePath:
+//       process.env.NODE_ENV === "production"
+//       ? process.env.PUPPETEER_EXECUTABLE_PATH
+//       : puppeteer.executablePath(),}
+// );
+
 
 async function openAndClosePage(url) {
 var count = 0;
@@ -10,8 +23,6 @@ var count = 0;
         agrs: [
             "--disable-setuid-sandbox",
             "--no-sandbox",
-            "--single-process",
-            "--no-zygote",
         ],
         executablePath:
             process.env.NODE_ENV === "production"
