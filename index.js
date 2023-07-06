@@ -1,7 +1,10 @@
 const puppeteer = require('puppeteer');
 require("dotenv").config();
 
+
+
 async function openAndClosePage(url) {
+var count = 0;
   while (true) {
     const browser = await puppeteer.launch({
         agrs: [
@@ -16,11 +19,11 @@ async function openAndClosePage(url) {
             : puppeteer.executablePath(),}
     );
     const page = await browser.newPage();
-
+    console.log("This is wild", ++count);
     await page.goto(url);
 
     // Wait for 10 seconds
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(2000);
 
     await browser.close();
   }
