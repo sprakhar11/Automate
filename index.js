@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 async function openAndClosePage(url) {
   while (true) {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
     await page.goto(url);
@@ -15,6 +15,6 @@ async function openAndClosePage(url) {
 }
 
 // Usage
-const url = 'https://www.example.com';
+const url = 'https://github.com/sprakhar11';
 openAndClosePage(url)
   .catch((error) => console.error('Error occurred:', error));

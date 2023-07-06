@@ -17,8 +17,6 @@
   },
   "homepage": "https://github.com/sprakhar11/Youtube_playlist_web_scraping#readme",
   "dependencies": {
-    "fs": "^0.0.1-security",
-    "pdfkit": "^0.13.0",
     "puppeteer": "^19.9.0"
   }
 }
