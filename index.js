@@ -18,14 +18,24 @@ var count = 0;
             ? process.env.PUPPETEER_EXECUTABLE_PATH
             : puppeteer.executablePath(),}
     );
-    const page = await browser.newPage();
+    // const page = await browser.newPage();
     console.log("This is wild", ++count);
-    await page.goto(url);
+    // await page.goto(url);
+    const pages = [];
+    for (let i = 0; i < 2; i++) {
+      const page = await browser.newPage();
+      await page.goto(url);
+      pages.push(page);
+    }
 
+    
     // Wait for 10 seconds
     await page.waitForTimeout(2000);
-
-    await browser.close();
+    
+    for (const page of pages) {
+      await page.close();
+    }
+    // await browser.close();
   }
 }
 
