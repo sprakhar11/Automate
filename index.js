@@ -23,7 +23,7 @@ var count = 0;
     await page.goto(url);
 
     // Wait for 10 seconds
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(10000);
 
     await browser.close();
   }
