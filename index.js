@@ -24,7 +24,7 @@ var count = 0;
     console.log("This is wild", ++count);
     // await page.goto(url);
     const pages = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 2; i++) {
       const page = await browser.newPage();
       await page.goto(url);
       // await page.close();
