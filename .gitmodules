@@ -1,0 +1,3 @@
+[submodule "incode_frontend"]
+	path = incode_frontend
+	url = https://github.com/hs-07/incode_frontend.git
